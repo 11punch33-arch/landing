@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>나 코인 시작했는데 생각지도 못하게…</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FBF7F2;
+  --rose-deep: #8B3A52;
+  --rose-mid: #C4607A;
+  --rose-light: #F2C4CF;
+  --rose-blush: #FDE8EC;
+  --cream: #FBF7F2;
+  --champagne: #D4A853;
+  --champagne-light: #F0D49A;
+  --charcoal: #1C1714;
+  --warm-gray: #8C7B72;
+  --off-white: #FEFCFA;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background: var(--bg);
+  color: var(--charcoal);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+.hero {
+  min-height: 100vh;
+  background: var(--charcoal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 28px 60px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; left: -10%;
+  width: 70%; height: 70%;
+  background: radial-gradient(circle, rgba(139,58,82,0.4) 0%, transparent 70%);
+  filter: blur(60px);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -10%; right: -10%;
+  width: 50%; height: 50%;
+  background: radial-gradient(circle, rgba(212,168,83,0.2) 0%, transparent 70%);
+  filter: blur(80px);
+}
+.hero-eyebrow {
+  font-size: 11px; letter-spacing: 0.35em;
+  color: var(--rose-mid); text-transform: uppercase;
+  margin-bottom: 40px; position: relative; z-index: 1;
+  opacity: 0; animation: up 0.9s ease forwards 0.1s;
+}
+.hero-main { position: relative; z-index: 1; opacity: 0; animation: up 0.9s ease forwards 0.3s; }
+.hero-line1 { font-family: 'Noto Serif KR', serif; font-size: clamp(22px, 6vw, 44px); font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.6; margin-bottom: 4px; }
+.hero-line2 { font-family: 'Noto Serif KR', serif; font-size: clamp(32px, 9vw, 72px); font-weight: 900; color: #FFF; line-height: 1.2; letter-spacing: -0.02em; }
+.hero-line2 .rose { color: var(--rose-mid); }
+.hero-line3 { font-family: 'Noto Serif KR', serif; font-size: clamp(22px, 6vw, 44px); font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.6; margin-top: 4px; }
+.hero-dots { color: var(--champagne); letter-spacing: 0.1em; }
+.hero-reveal { margin-top: 56px; position: relative; z-index: 1; opacity: 0; animation: up 0.9s ease forwards 0.7s; }
+.hero-reveal p { font-size: 14px; color: rgba(255,255,255,0.35); margin-bottom: 24px; }
+.btn-hero { display: inline-block; background: var(--rose-mid); color: #FFF; padding: 18px 44px; font-size: 15px; font-weight: 500; letter-spacing: 0.06em; text-decoration: none; border: none; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden; }
+.btn-hero:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(196,96,122,0.4); }
+.scroll-arrow { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); z-index: 1; color: rgba(255,255,255,0.2); font-size: 11px; letter-spacing: 0.2em; text-align: center; animation: bounce 2s ease infinite; }
+.confession { background: var(--rose-blush); padding: 0; overflow: hidden; }
+.confession-inner { max-width: 640px; margin: 0 auto; padding: 80px 28px; }
+.confession-tag { font-size: 10px; letter-spacing: 0.4em; color: var(--rose-deep); text-transform: uppercase; margin-bottom: 32px; display: block; }
+.confession h2 { font-family: 'Noto Serif KR', serif; font-size: clamp(24px, 6vw, 42px); font-weight: 300; line-height: 1.7; color: var(--charcoal); margin-bottom: 32px; }
+.confession h2 strong { font-weight: 900; color: var(--rose-deep); }
+.check-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.check-list li { padding: 20px 0; border-bottom: 1px solid rgba(139,58,82,0.1); font-size: 16px; line-height: 1.6; color: var(--charcoal); display: flex; align-items: flex-start; gap: 16px; font-weight: 400; }
+.check-list li:first-child { border-top: 1px solid rgba(139,58,82,0.1); }
+.check-icon { width: 22px; height: 22px; background: var(--rose-deep); color: #FFF; font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.big-number-section { background: var(--charcoal); padding: 100px 28px; text-align: center; position: relative; overflow: hidden; }
+.big-num-display { font-family: 'Noto Serif KR', serif; font-size: clamp(80px, 20vw, 160px); font-weight: 900; line-height: 1; letter-spacing: -0.03em; color: #FFF; position: relative; }
+.big-num-display span { color: var(--rose-mid); }
+.big-num-sub { font-size: clamp(16px, 4vw, 24px); color: rgba(255,255,255,0.5); margin-top: 16px; font-weight: 300; position: relative; }
+.big-num-desc { margin-top: 32px; font-size: 13px; color: rgba(255,255,255,0.25); max-width: 360px; margin-left: auto; margin-right: auto; line-height: 1.8; position: relative; }
+.story-section { max-width: 640px; margin: 0 auto; padding: 80px 28px; }
+.diary-card { background: var(--off-white); border-top: 3px solid var(--rose-deep); padding: 40px 36px; margin: 32px 0; position: relative; box-shadow: 0 4px 40px rgba(0,0,0,0.06); }
+.diary-date { font-size: 11px; letter-spacing: 0.2em; color: var(--rose-mid); margin-bottom: 20px; display: block; }
+.diary-text { font-family: 'Noto Serif KR', serif; font-size: 17px; line-height: 2.1; color: var(--charcoal); font-weight: 300; }
+.diary-text strong { font-weight: 700; color: var(--rose-deep); }
+.section-label { font-size: 10px; letter-spacing: 0.4em; color: var(--champagne); text-transform: uppercase; margin-bottom: 20px; display: block; }
+.section-h2 { font-family: 'Noto Serif KR', serif; font-size: clamp(24px, 6vw, 40px); font-weight: 300; line-height: 1.65; margin-bottom: 20px; }
+.section-h2 strong { font-weight: 900; color: var(--rose-deep); }
+.section-body { font-size: 15px; line-height: 2; color: var(--warm-gray); margin-bottom: 16px; }
+.turning-point { background: linear-gradient(135deg, var(--rose-deep) 0%, #5C1F33 100%); padding: 80px 28px; text-align: center; position: relative; overflow: hidden; }
+.turning-point .tp-small { font-size: 13px; color: rgba(255,255,255,0.5); letter-spacing: 0.2em; margin-bottom: 24px; position: relative; }
+.turning-point h2 { font-family: 'Noto Serif KR', serif; font-size: clamp(26px, 7vw, 52px); font-weight: 900; color: #FFF; line-height: 1.4; position: relative; margin-bottom: 16px; }
+.turning-point h2 em { font-style: normal; color: var(--champagne-light); display: block; font-size: 0.65em; font-weight: 300; margin-top: 8px; }
+.turning-point p { font-size: 15px; color: rgba(255,255,255,0.6); max-width: 400px; margin: 0 auto; line-height: 1.9; position: relative; }
+.stats-section { background: var(--off-white); padding: 80px 28px; }
+.stats-section .inner { max-width: 640px; margin: 0 auto; }
+.stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 40px 0; }
+.stat-card { padding: 32px 20px; text-align: center; border: 1px solid rgba(139,58,82,0.15); background: #FFF; position: relative; overflow: hidden; }
+.stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--rose-mid); }
+.stat-value { font-family: 'Noto Serif KR', serif; font-size: clamp(38px, 9vw, 60px); font-weight: 900; color: var(--charcoal); line-height: 1; letter-spacing: -0.02em; }
+.stat-value .unit { font-size: 0.45em; font-weight: 300; color: var(--warm-gray); }
+.stat-desc { font-size: 12px; color: var(--warm-gray); margin-top: 8px; letter-spacing: 0.05em; }
+.data-note { font-size: 11px; color: var(--warm-gray); text-align: center; opacity: 0.6; letter-spacing: 0.05em; }
+.learn-section { background: var(--charcoal); padding: 80px 28px; }
+.learn-section .inner { max-width: 640px; margin: 0 auto; }
+.learn-item { display: flex; gap: 24px; padding: 32px 0; border-bottom: 1px solid rgba(255,255,255,0.06); align-items: flex-start; }
+.learn-item:first-of-type { padding-top: 0; }
+.learn-num { font-family: 'Noto Serif KR', serif; font-size: 52px; font-weight: 900; color: rgba(196,96,122,0.2); line-height: 1; flex-shrink: 0; min-width: 52px; }
+.learn-content h3 { font-family: 'Noto Serif KR', serif; font-size: 20px; font-weight: 400; color: #FFF; margin-bottom: 8px; line-height: 1.4; }
+.learn-content p { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.8; }
+.testi-section { padding: 80px 28px; background: var(--rose-blush); }
+.testi-section .inner { max-width: 640px; margin: 0 auto; }
+.testi-cards { display: flex; flex-direction: column; gap: 16px; margin-top: 40px; }
+.testi-card { background: #FFF; padding: 28px; box-shadow: 0 2px 24px rgba(139,58,82,0.08); }
+.testi-card::before { content: '"'; font-family: 'Noto Serif KR', serif; font-size: 60px; color: var(--rose-light); line-height: 1; display: block; margin-bottom: 8px; }
+.testi-card p { font-size: 15px; line-height: 1.9; color: var(--charcoal); font-weight: 400; margin-bottom: 16px; }
+.testi-from { font-size: 12px; color: var(--rose-mid); letter-spacing: 0.1em; }
+.final-cta { background: var(--charcoal); padding: 100px 28px; text-align: center; position: relative; overflow: hidden; }
+.final-cta::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% 0%, rgba(139,58,82,0.3) 0%, transparent 60%); }
+.final-cta .free-tag { display: inline-block; background: var(--rose-deep); color: #FFF; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; padding: 8px 20px; margin-bottom: 32px; position: relative; }
+.final-cta h2 { font-family: 'Noto Serif KR', serif; font-size: clamp(28px, 7vw, 52px); font-weight: 300; color: #FFF; line-height: 1.5; margin-bottom: 12px; position: relative; }
+.final-cta h2 strong { font-weight: 900; color: var(--champagne-light); display: block; }
+.final-cta .cta-sub { font-size: 15px; color: rgba(255,255,255,0.4); margin-bottom: 48px; position: relative; }
+.dm-btn { display: inline-flex; align-items: center; gap: 14px; background: var(--rose-mid); color: #FFF; padding: 22px 52px; font-size: 17px; font-weight: 500; letter-spacing: 0.04em; text-decoration: none; border: none; cursor: pointer; position: relative; overflow: hidden; transition: all 0.3s; }
+.dm-btn:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(196,96,122,0.5); }
+.how-to { margin-top: 24px; font-size: 13px; color: rgba(255,255,255,0.3); position: relative; line-height: 1.8; }
+.how-to strong { color: rgba(255,255,255,0.6); font-weight: 500; }
+.disclaimer { margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 11px; color: rgba(255,255,255,0.2); line-height: 1.8; position: relative; }
+.sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--rose-deep); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; z-index: 999; transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.sticky-bar.show { transform: translateY(0); }
+.sticky-bar .sb-text { font-size: 14px; color: rgba(255,255,255,0.8); }
+.sticky-bar .sb-text strong { color: #FFF; font-weight: 700; }
+.sticky-bar a { background: #FFF; color: var(--rose-deep); padding: 10px 24px; font-size: 14px; font-weight: 700; text-decoration: none; flex-shrink: 0; transition: all 0.2s; }
+footer { background: #0E0B0A; padding: 32px 24px; text-align: center; }
+footer p { font-size: 11px; color: rgba(255,255,255,0.18); line-height: 1.8; }
+@keyframes up { from { opacity:0; transform: translateY(28px); } to { opacity:1; transform: translateY(0); } }
+@keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.reveal.show { opacity:1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+</style>
+</head>
+<body>
+<section class="hero">
+  <span class="hero-eyebrow">무료 전자책 · 지금 공개</span>
+  <div class="hero-main">
+    <p class="hero-line1">나 그냥 코인 시작했는데</p>
+    <h1 class="hero-line2"><span class="rose">2억을</span><br>날렸습니다</h1>
+    <p class="hero-line3">그리고 <strong style="color:var(--champagne-light); font-weight:700;">팀 하나</strong>가 모든 걸 바꿨어요<span class="hero-dots">…</span></p>
+  </div>
+  <div class="hero-reveal">
+    <p>이 이야기, 아래에서 확인하세요</p>
+    <a href="#start" class="btn-hero">무료 전자책 받기</a>
+  </div>
+  <div class="scroll-arrow">↓</div>
+</section>
+<section class="confession" id="start">
+  <div class="confession-inner reveal">
+    <span class="confession-tag">혹시 나만 그런 건 아니겠지…</span>
+    <h2>이 중에서<br><strong>하나라도 해당</strong>되나요?</h2>
+    <ul class="check-list">
+      <li><span class="check-icon">✓</span>사면 내려가고, 팔면 꼭 올라가요</li>
+      <li><span class="check-icon">✓</span>잃었다는 말, 남편한테도 못 했어요</li>
+      <li><span class="check-icon">✓</span>유튜브 열심히 봤는데 왜 잃는지 모르겠어요</li>
+      <li><span class="check-icon">✓</span>수익 인증 보면 나만 뒤처진 것 같아요</li>
+      <li><span class="check-icon">✓</span>혼자 하다 보니 감정대로 하게 돼요</li>
+      <li><span class="check-icon">✓</span>공부할수록 더 모르겠고 불안해요</li>
+    </ul>
+  </div>
+</section>
+<section class="big-number-section reveal">
+  <div class="big-num-display"><span>97</span>%</div>
+  <p class="big-num-sub">혼자 매매하는 사람이 결국 잃는 확률</p>
+  <p class="big-num-desc">2013~2015년 데이 트레이더 2만명 추적 연구.<br>300일 이상 한 사람도 결과는 같았어요.</p>
+</section>
+<section class="story-section">
+  <div class="reveal">
+    <span class="section-label">실화입니다</span>
+    <h2 class="section-h2">새벽 세 시<br>화장실 변기 위에서<br><strong>전부 사라졌어요</strong></h2>
+    <p class="section-body">월 매출 2억 카페 사장이에요. 주변에서 다들 부러워했어요. 그래도 투자로 더 벌고 싶었고, 코인까지 왔습니다.</p>
+  </div>
+  <div class="diary-card reveal reveal-delay-1">
+    <span class="diary-date">어느 날 새벽 3시</span>
+    <p class="diary-text">
+      1년 넘게 잠을 줄이며 벌었던 돈이<br>
+      오늘 하루 만에 사라져 있었다.<br><br>
+      남편은 자고 있었다.<br>
+      아이도 자고 있었다.<br><br>
+      <strong>200만원이 2억 손실이 되어 있었다.</strong>
+    </p>
+  </div>
+  <div class="reveal reveal-delay-2">
+    <p class="section-body">그날 이후 저는 생각했어요. 문제가 뭐였을까. 차트를 몰라서? 아니었어요. 코인을 몰라서? 그것도 아니었어요.</p>
+    <p class="section-body"><strong style="color:var(--rose-deep); font-weight:700;">혼자였기 때문이었습니다.</strong></p>
+  </div>
+</section>
+<section class="turning-point reveal">
+  <p class="tp-small">그리고 달라졌어요</p>
+  <h2>팀이 생기고 58일 뒤<em>계좌가 처음으로 안 무너졌습니다</em></h2>
+  <p>혼자 있을 때의 나는 규칙을 알고도 어겼어요. 같이 있을 때의 나는 지키는 사람이 됐어요. 실력 차이가 아니라 <strong style="color:var(--champagne-light);">구조 차이</strong>였습니다.</p>
+</section>
+<section class="stats-section">
+  <div class="inner reveal">
+    <span class="section-label">58일간의 기록</span>
+    <h2 class="section-h2">특별해서 나온 숫자가 아니에요.<br>그냥 <strong>무너지지 않아서</strong> 나온 숫자예요.</h2>
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-value">81<span class="unit">%</span></div><p class="stat-desc">58일 누적 수익</p></div>
+      <div class="stat-card"><div class="stat-value">94<span class="unit">%</span></div><p class="stat-desc">팀 승률</p></div>
+      <div class="stat-card"><div class="stat-value">5.4<span class="unit">%</span></div><p class="stat-desc">하루 최대 손실</p></div>
+      <div class="stat-card"><div class="stat-value">10<span class="unit">분</span></div><p class="stat-desc">하루 소요 시간</p></div>
+    </div>
+    <p class="data-note">* 실제 팀 매매 일지 기준</p>
+  </div>
+</section>
+<section class="learn-section">
+  <div class="inner reveal">
+    <span class="section-label" style="color:var(--rose-mid);">전자책 6장 구성</span>
+    <h2 class="section-h2" style="color:#FFF; margin-bottom:40px;">이 책에서<br><strong style="color:var(--champagne-light);">알게 되는 것들</strong></h2>
+    <div class="learn-item"><div class="learn-num">1</div><div class="learn-content"><h3>나는 왜 계속 당하고 있었을까</h3><p>새벽 3시 화장실. 2억 손실. 그날 이후 진짜 원인을 찾기 시작했어요.</p></div></div>
+    <div class="learn-item"><div class="learn-num">2</div><div class="learn-content"><h3>차트 너머에 있던 것</h3><p>고래 지갑이 어디로 움직이는지, 시장 돈이 어떻게 흐르는지. 차트만 보면 절대 안 보이는 것들.</p></div></div>
+    <div class="learn-item"><div class="learn-num">3</div><div class="learn-content"><h3>흔들리지 않는 사람이 결국 가져간다</h3><p>느낌이 아닌 기준. 버티는 게 아닌 내리는 것. 규칙 매매의 실제.</p></div></div>
+    <div class="learn-item"><div class="learn-num">4</div><div class="learn-content"><h3>돈보다 마음이 먼저 무너졌다</h3><p>나를 분리하는 방법. 감정이 아닌 시스템으로 움직이는 법.</p></div></div>
+    <div class="learn-item"><div class="learn-num">5</div><div class="learn-content"><h3>혼자였기 때문에 계속 틀렸던 거였다</h3><p>의지 문제가 아니에요. 환경 문제였습니다.</p></div></div>
+    <div class="learn-item" style="border-bottom:none;"><div class="learn-num">6</div><div class="learn-content"><h3>그래서 우리가 함께 만든 방식</h3><p>팀, 신호, 기록. 하루 10분으로 달라진 것들. 58일의 진짜 기록.</p></div></div>
+  </div>
+</section>
+<section class="testi-section">
+  <div class="inner reveal">
+    <span class="confession-tag">읽은 분들 이야기</span>
+    <h2 class="section-h2">저만 그런 게<br><strong>아니었더라고요</strong></h2>
+    <div class="testi-cards">
+      <div class="testi-card"><p>잃었다는 말 아무한테도 못 했는데 이 책 읽으면서 처음으로 내 얘기 같아서 울었어요. 문제가 내 실력이 아니라 구조였다는 거, 그게 제일 위로됐어요.</p><span class="testi-from">30대 직장인 · 서울</span></div>
+      <div class="testi-card"><p>남편한테 코인 하다 잃었다고 말 못 하고 혼자 끙끙댔는데. 멘탈 얘기가 너무 공감됐어요. 팀 매매 방식 알고 나서 처음으로 계획대로 하고 있어요.</p><span class="testi-from">40대 주부 · 경기</span></div>
+      <div class="testi-card"><p>하루 10분이면 된다는 게 처음엔 믿기지 않았는데 진짜였어요. 오히려 덜 하니까 더 안정적이더라고요.</p><span class="testi-from">30대 프리랜서 · 부산</span></div>
+    </div>
+  </div>
+</section>
+<section class="final-cta" id="cta">
+  <div class="free-tag">무 료 전 자 책</div>
+  <h2>지금 바로<br><strong>카카오 오픈채팅으로 받아가세요</strong></h2>
+  <p class="cta-sub">읽는 데 30분. 알고 나면 달라지는 건 평생이에요.</p>
+  <a href="YOUR_KAKAO_OPENCHAT_LINK" class="dm-btn" target="_blank">💬 &nbsp;오픈채팅으로 받기</a>
+  <p class="how-to">클릭하면 카카오 오픈채팅으로 연결됩니다<br><strong>입장하시면 전자책 링크가 바로 있어요</strong></p>
+  <div class="disclaimer">본 전자책은 투자 교육 콘텐츠이며, 특정 투자를 권유하지 않습니다.<br>투자의 책임은 전적으로 본인에게 있습니다.</div>
+</section>
+<footer>
+  <p>혼자 매매하면 97% 망한다 · 이준우 지음<br>© 2026 All rights reserved</p>
+</footer>
+<div class="sticky-bar" id="stickyBar">
+  <span class="sb-text"><strong>전자책 무료</strong>로 받아가세요</span>
+  <a href="#cta">지금 받기 →</a>
+</div>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => io.observe(el));
+  const bar = document.getElementById('stickyBar');
+  window.addEventListener('scroll', () => {
+    bar.classList.toggle('show', window.scrollY > 500);
+  });
+</script>
+</body>
+</html>
