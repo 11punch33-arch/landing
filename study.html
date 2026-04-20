@@ -7,60 +7,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #F8F6F2;
-  --deep: #1A2744;
-  --mid: #2B3F6B;
-  --accent: #C4A45A;
-  --accent-light: #F0DFA0;
-  --rose: #C4607A;
-  --blush: #FDE8EC;
-  --warm-gray: #8C7B72;
-  --off-white: #FEFCFA;
-  --charcoal: #1C1714;
+  --bg: #F8F6F2; --deep: #1A2744; --mid: #2B3F6B; --accent: #C4A45A;
+  --accent-light: #F0DFA0; --rose: #C4607A; --blush: #FDE8EC;
+  --warm-gray: #8C7B72; --off-white: #FEFCFA; --charcoal: #1C1714;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { background:var(--bg); color:var(--charcoal); font-family:'Noto Sans KR',sans-serif; font-weight:300; overflow-x:hidden; }
-
-/* LOGO BAR */
 .logo-bar { background:var(--deep); padding:12px 28px; display:flex; align-items:center; justify-content:center; }
 .logo-bar img { height:32px; object-fit:contain; }
-
-/* HERO */
 .hero { min-height:100vh; background:var(--deep); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:80px 28px 60px; position:relative; overflow:hidden; text-align:center; }
-.hero::before { content:''; position:absolute; top:-20%; left:-10%; width:70%; height:70%; background:radial-gradient(circle, rgba(196,164,90,0.2) 0%, transparent 70%); filter:blur(60px); }
-.hero::after { content:''; position:absolute; bottom:-10%; right:-10%; width:50%; height:50%; background:radial-gradient(circle, rgba(43,63,107,0.5) 0%, transparent 70%); filter:blur(80px); }
-.hero-badge { position:relative; z-index:1; display:inline-block; background:rgba(196,164,90,0.15); border:1px solid rgba(196,164,90,0.4); color:var(--accent); font-size:11px; letter-spacing:0.25em; padding:7px 18px; margin-bottom:32px; opacity:0; animation:up 0.9s ease forwards 0.1s; }
+.hero-badge { position:relative; z-index:1; display:inline-block; background:rgba(196,164,90,0.2); border:1px solid rgba(196,164,90,0.5); color:var(--accent-light); font-size:11px; letter-spacing:0.25em; padding:7px 18px; margin-bottom:32px; opacity:0; animation:up 0.9s ease forwards 0.1s; }
 .hero-main { position:relative; z-index:1; opacity:0; animation:up 0.9s ease forwards 0.3s; }
-.hero-line1 { font-family:'Noto Serif KR',serif; font-size:clamp(16px,4vw,28px); font-weight:300; color:rgba(255,255,255,0.55); line-height:1.6; margin-bottom:8px; }
+.hero-line1 { font-family:'Noto Serif KR',serif; font-size:clamp(16px,4vw,28px); font-weight:300; color:rgba(255,255,255,0.8); line-height:1.6; margin-bottom:8px; }
 .hero-line2 { font-family:'Noto Serif KR',serif; font-size:clamp(28px,7vw,58px); font-weight:900; color:#FFF; line-height:1.2; letter-spacing:-0.02em; margin-bottom:8px; }
 .hero-line2 .gold { color:var(--accent); }
-.hero-line3 { font-family:'Noto Serif KR',serif; font-size:clamp(16px,4vw,28px); font-weight:300; color:rgba(255,255,255,0.55); line-height:1.6; }
-.hero-sub { position:relative; z-index:1; margin-top:28px; font-size:14px; color:rgba(255,255,255,0.35); line-height:1.8; opacity:0; animation:up 0.9s ease forwards 0.6s; }
+.hero-line3 { font-family:'Noto Serif KR',serif; font-size:clamp(16px,4vw,28px); font-weight:300; color:rgba(255,255,255,0.8); line-height:1.6; }
+.hero-sub { position:relative; z-index:1; margin-top:28px; font-size:14px; color:rgba(255,255,255,0.6); line-height:1.8; opacity:0; animation:up 0.9s ease forwards 0.6s; }
 .hero-cta { position:relative; z-index:1; margin-top:36px; opacity:0; animation:up 0.9s ease forwards 0.8s; }
 .btn-primary { display:inline-block; background:var(--accent); color:#FFF; padding:18px 44px; font-size:15px; font-weight:700; letter-spacing:0.06em; text-decoration:none; transition:all 0.3s; }
 .btn-primary:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(196,164,90,0.4); }
-.scroll-arrow { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); z-index:1; color:rgba(255,255,255,0.2); font-size:20px; animation:bounce 2s ease infinite; }
-
-/* TRUST BADGES */
+.scroll-arrow { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); z-index:1; color:rgba(255,255,255,0.4); font-size:20px; animation:bounce 2s ease infinite; }
 .trust-strip { background:var(--mid); padding:20px 28px; }
 .trust-strip-inner { max-width:640px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; text-align:center; }
 .trust-item { color:rgba(255,255,255,0.7); font-size:12px; line-height:1.6; }
 .trust-item strong { display:block; font-size:18px; font-weight:700; color:var(--accent); margin-bottom:2px; }
-
-/* FEAR SECTION */
 .fear-section { background:var(--blush); padding:72px 28px; }
 .fear-inner { max-width:640px; margin:0 auto; }
 .section-tag { font-size:10px; letter-spacing:0.4em; color:var(--rose); text-transform:uppercase; margin-bottom:20px; display:block; }
 .section-h2 { font-family:'Noto Serif KR',serif; font-size:clamp(22px,5.5vw,38px); font-weight:300; line-height:1.65; margin-bottom:20px; }
 .section-h2 strong { font-weight:900; color:var(--rose); }
 .fear-list { list-style:none; margin-top:28px; }
-.fear-list li { padding:18px 0; border-bottom:1px solid rgba(196,96,122,0.12); font-size:15px; line-height:1.7; color:var(--charcoal); display:flex; align-items:flex-start; gap:14px; }
+.fear-list li { padding:22px 0; border-bottom:1px solid rgba(196,96,122,0.12); font-size:15px; line-height:1.9; color:var(--charcoal); display:flex; align-items:flex-start; gap:14px; }
 .fear-list li:first-child { border-top:1px solid rgba(196,96,122,0.12); }
 .fear-num { font-family:'Noto Serif KR',serif; font-size:22px; font-weight:900; color:rgba(196,96,122,0.25); flex-shrink:0; line-height:1; margin-top:2px; }
-.fear-text strong { color:var(--rose); font-weight:700; }
-
-/* WHAT YOU GET */
+.fear-text strong { color:var(--rose); font-weight:700; display:block; margin-bottom:8px; font-size:16px; }
 .get-section { background:var(--deep); padding:72px 28px; }
 .get-inner { max-width:640px; margin:0 auto; }
 .get-grid { display:flex; flex-direction:column; gap:0; margin-top:36px; }
@@ -69,8 +50,6 @@ body { background:var(--bg); color:var(--charcoal); font-family:'Noto Sans KR',s
 .get-icon { width:44px; height:44px; background:rgba(196,164,90,0.15); border:1px solid rgba(196,164,90,0.3); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:18px; }
 .get-content h3 { font-family:'Noto Serif KR',serif; font-size:17px; font-weight:400; color:#FFF; margin-bottom:6px; line-height:1.4; }
 .get-content p { font-size:13px; color:rgba(255,255,255,0.45); line-height:1.8; }
-
-/* STATS */
 .stats-section { background:var(--off-white); padding:72px 28px; }
 .stats-inner { max-width:640px; margin:0 auto; }
 .stats-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:32px 0 24px; }
@@ -83,8 +62,6 @@ body { background:var(--bg); color:var(--charcoal); font-family:'Noto Sans KR',s
 .proof-photos img { width:100%; border-radius:4px; object-fit:cover; }
 .team-photo { width:100%; margin-top:10px; border-radius:4px; object-fit:cover; }
 .data-note { font-size:11px; color:var(--warm-gray); text-align:center; opacity:0.6; margin-top:10px; }
-
-/* SAFETY SECTION */
 .safety-section { background:var(--bg); padding:72px 28px; }
 .safety-inner { max-width:640px; margin:0 auto; }
 .safety-cards { display:flex; flex-direction:column; gap:12px; margin-top:32px; }
@@ -92,16 +69,11 @@ body { background:var(--bg); color:var(--charcoal); font-family:'Noto Sans KR',s
 .safety-icon { width:40px; height:40px; background:rgba(26,39,68,0.06); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:16px; }
 .safety-card h3 { font-size:15px; font-weight:700; color:var(--deep); margin-bottom:4px; }
 .safety-card p { font-size:13px; color:var(--warm-gray); line-height:1.7; }
-
-/* PHOTOS */
 .photo-section { background:var(--deep); padding:72px 28px; }
 .photo-inner { max-width:640px; margin:0 auto; }
 .photo-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:28px; }
 .photo-grid img { width:100%; height:160px; object-fit:cover; }
-.photo-grid img.full { grid-column:1/-1; height:200px; }
 .photo-label { font-size:11px; color:rgba(255,255,255,0.3); text-align:center; margin-top:10px; letter-spacing:0.15em; }
-
-/* HOW */
 .how-section { background:var(--blush); padding:72px 28px; }
 .how-inner { max-width:640px; margin:0 auto; }
 .how-steps { display:flex; flex-direction:column; gap:0; margin-top:32px; }
@@ -110,8 +82,6 @@ body { background:var(--bg); color:var(--charcoal); font-family:'Noto Sans KR',s
 .how-num { font-family:'Noto Serif KR',serif; font-size:36px; font-weight:900; color:rgba(196,96,122,0.2); flex-shrink:0; line-height:1; min-width:40px; }
 .how-content h3 { font-size:16px; font-weight:700; color:var(--charcoal); margin-bottom:4px; }
 .how-content p { font-size:13px; color:var(--warm-gray); line-height:1.7; }
-
-/* CTA */
 .final-cta { background:var(--deep); padding:88px 28px; text-align:center; position:relative; overflow:hidden; }
 .final-cta::before { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:radial-gradient(ellipse at 50% 0%, rgba(196,164,90,0.15) 0%, transparent 60%); }
 .final-cta .free-tag { display:inline-block; background:rgba(196,164,90,0.2); border:1px solid rgba(196,164,90,0.4); color:var(--accent); font-size:11px; font-weight:700; letter-spacing:0.2em; padding:7px 18px; margin-bottom:28px; position:relative; }
@@ -127,57 +97,39 @@ body { background:var(--bg); color:var(--charcoal); font-family:'Noto Sans KR',s
 .info-item .info-label { font-size:10px; color:rgba(255,255,255,0.35); letter-spacing:0.15em; margin-bottom:4px; }
 .info-item .info-val { font-size:14px; font-weight:700; color:#FFF; }
 .disclaimer { margin-top:52px; padding-top:36px; border-top:1px solid rgba(255,255,255,0.06); font-size:11px; color:rgba(255,255,255,0.2); line-height:1.8; position:relative; }
-
-/* STICKY */
 .sticky-bar { position:fixed; bottom:0; left:0; right:0; background:#FEE500; padding:13px 20px; display:flex; align-items:center; justify-content:space-between; z-index:999; transform:translateY(100%); transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1); }
 .sticky-bar.show { transform:translateY(0); }
 .sticky-bar .sb-text { font-size:13px; color:#3C1E1E; font-weight:500; }
 .sticky-bar .sb-text strong { font-weight:700; }
 .sticky-bar a { background:#3C1E1E; color:#FEE500; padding:9px 20px; font-size:13px; font-weight:700; text-decoration:none; flex-shrink:0; }
-
-/* FOOTER */
 footer { background:#0E0B0A; padding:28px 24px; text-align:center; }
 footer p { font-size:11px; color:rgba(255,255,255,0.18); line-height:1.8; }
-
-/* ANIMATIONS */
 @keyframes up { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
 @keyframes bounce { 0%,100% { transform:translateX(-50%) translateY(0); } 50% { transform:translateX(-50%) translateY(8px); } }
 .reveal { opacity:0; transform:translateY(32px); transition:opacity 0.9s ease, transform 0.9s ease; }
 .reveal.show { opacity:1; transform:translateY(0); }
-.reveal-delay-1 { transition-delay:0.1s; }
-.reveal-delay-2 { transition-delay:0.2s; }
 </style>
 </head>
 <body>
 
-<!-- LOGO -->
-<div class="logo-bar">
-  <img src="logo.JPG" alt="EX Logo">
-</div>
+<div class="logo-bar"><img src="logo.JPG" alt="EX Logo"></div>
 
-<!-- HERO -->
 <section class="hero" style="position:relative;">
   <div style="position:absolute; inset:0; z-index:0;">
-    <img src="버몌역.JPG" alt="범계역" style="width:100%; height:100%; object-fit:cover; opacity:0.25;">
-    <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(26,39,68,0.7) 0%, rgba(26,39,68,0.92) 100%);"></div>
+    <img src="버몌역.JPG" alt="범계역" style="width:100%; height:100%; object-fit:cover; opacity:0.6;">
+    <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(10,18,40,0.25) 0%, rgba(10,18,40,0.6) 60%, rgba(10,18,40,0.88) 100%);"></div>
   </div>
-  <div class="hero-badge" style="position:relative; z-index:1;">📍 범계역 · 안양 · 평촌</div>
-  <div class="hero-main" style="position:relative; z-index:1;">
-    <p class="hero-line1" style="color:var(--accent-light); font-weight:700; font-size:clamp(14px,3.5vw,22px);">범계역 근처에 사세요?</p>
+  <div class="hero-badge">📍 범계역 · 안양 · 평촌</div>
+  <div class="hero-main">
+    <p class="hero-line1">범계역 근처에 사세요?</p>
     <h1 class="hero-line2"><span class="gold">코인 차트</span><br>같이 봐요</h1>
-    <p class="hero-line3">혼자 하면 97%가 잃어요.<br>우리는 <strong style="color:var(--accent-light); font-weight:700;">같이</strong> 해서 달라졌어요</p>
+    <p class="hero-line3">혼자 하면 97%가 잃어요<br>우리는 <strong style="color:var(--accent-light); font-weight:700;">같이</strong> 해서 달라졌어요</p>
   </div>
-  <p class="hero-sub" style="position:relative; z-index:1;">
-    매주 범계역 근처에서 만나는 차트 스터디예요<br>
-    참가비 없음 · 30~65세 누구나
-  </p>
-  <div class="hero-cta" style="position:relative; z-index:1;">
-    <a href="#cta" class="btn-primary">모임 참여 문의하기</a>
-  </div>
-  <div class="scroll-arrow" style="z-index:1;">↓</div>
+  <p class="hero-sub">매주 범계역 근처에서 만나는 차트 스터디예요<br>참가비 없음 · 30~65세 누구나</p>
+  <div class="hero-cta"><a href="#cta" class="btn-primary">모임 참여 문의하기</a></div>
+  <div class="scroll-arrow">↓</div>
 </section>
 
-<!-- TRUST STRIP -->
 <div class="trust-strip reveal">
   <div class="trust-strip-inner">
     <div class="trust-item"><strong>무료</strong>참가비 없음</div>
@@ -186,7 +138,6 @@ footer p { font-size:11px; color:rgba(255,255,255,0.18); line-height:1.8; }
   </div>
 </div>
 
-<!-- FEAR SECTION -->
 <section class="fear-section">
   <div class="fear-inner reveal">
     <span class="section-tag">솔직하게 말할게요</span>
@@ -195,75 +146,47 @@ footer p { font-size:11px; color:rgba(255,255,255,0.18); line-height:1.8; }
       <li>
         <span class="fear-num">1</span>
         <div class="fear-text">
-          <strong>사기 아닌가요?</strong><br>
-          맞아요. 코인판엔 사기가 많아요. 그래서 저희는 특정 코인 추천도, 입금 요청도 절대 없어요. 공부하는 모임이에요.
+          <strong>사기 아닌가요?</strong>
+          사기는 대부분 이 두 가지예요.<br>
+          "투자를 대신 해드립니다" 또는 "이 코인 사면 몇 배 갑니다"<br>
+          이 두 마디가 나오면 무조건 의심하세요.<br><br>
+          저희는 특정 코인 추천도, 입금 요청도 절대 없어요. 같이 차트 보고 공부하는 모임이에요.
         </div>
       </li>
       <li>
         <span class="fear-num">2</span>
         <div class="fear-text">
-          <strong>돈 잃으면 어떡하죠?</strong><br>
-          잃는 이유는 하나예요. 감정대로 하기 때문이에요. 시스템이 생기면 달라져요. 그 시스템을 같이 만드는 모임이에요.
+          <strong>돈 잃으면 어떡하죠?</strong>
+          잃는 이유를 먼저 아는 게 시작이에요.<br>
+          내비게이션처럼 방향을 알려주는 AI 차트로 공부하면, 보이지 않던 차트가 조금씩 보이기 시작해요. 감이 아니라 근거로 하게 돼요.
         </div>
       </li>
       <li>
         <span class="fear-num">3</span>
         <div class="fear-text">
-          <strong>너무 어렵지 않을까요?</strong><br>
-          차트 처음 보시는 분도 괜찮아요. 같이 보고, 같이 배우는 거예요. 혼자 공부하는 것보다 10배 빨라요.
+          <strong>너무 어렵지 않을까요?</strong>
+          차트 처음 보시는 분도 괜찮아요. 같이 보고, 같이 배우는 자리예요. 혼자 공부하는 것보다 10배 빨라요.
         </div>
       </li>
     </ul>
   </div>
 </section>
 
-<!-- WHAT YOU GET -->
 <section class="get-section">
   <div class="get-inner reveal">
     <span class="section-tag" style="color:var(--accent);">모임에서 배우는 것</span>
     <h2 class="section-h2" style="color:#FFF; margin-bottom:8px;">감정 말고<br><strong style="color:var(--accent-light);">시스템으로</strong> 하는 법</h2>
     <p style="font-size:14px; color:rgba(255,255,255,0.4); line-height:1.8;">뇌동매매를 끊고, 나만의 기준을 만드는 것. 그게 이 모임의 전부예요.</p>
     <div class="get-grid">
-      <div class="get-item">
-        <div class="get-icon">🧠</div>
-        <div class="get-content">
-          <h3>뇌동매매 끊는 법</h3>
-          <p>감정대로 사고팔면 100전 100패예요. 나만의 매매 시스템이 생기면 달라집니다.</p>
-        </div>
-      </div>
-      <div class="get-item">
-        <div class="get-icon">📊</div>
-        <div class="get-content">
-          <h3>차트 읽는 법</h3>
-          <p>도미넌스, 눌림목, 추세전환. 어렵게 들리지만 같이 보면 보여요.</p>
-        </div>
-      </div>
-      <div class="get-item">
-        <div class="get-icon">✂️</div>
-        <div class="get-content">
-          <h3>손절과 익절의 비율</h3>
-          <p>얼마에 팔고 얼마에 나올지. 이 기준이 없으면 계속 잃어요.</p>
-        </div>
-      </div>
-      <div class="get-item">
-        <div class="get-icon">🔄</div>
-        <div class="get-content">
-          <h3>매매 복기</h3>
-          <p>내가 어디서 실수했는지. 같이 보면 보이지 않던 게 보여요.</p>
-        </div>
-      </div>
-      <div class="get-item">
-        <div class="get-icon">💰</div>
-        <div class="get-content">
-          <h3>실전 수익 공유</h3>
-          <p>어떤 신호에서 들어가서 얼마 났는지. 남의 경험이 내 것이 돼요.</p>
-        </div>
-      </div>
+      <div class="get-item"><div class="get-icon">🧠</div><div class="get-content"><h3>뇌동매매 끊는 법</h3><p>감정대로 사고팔면 100전 100패예요. 나만의 매매 시스템이 생기면 달라집니다.</p></div></div>
+      <div class="get-item"><div class="get-icon">📊</div><div class="get-content"><h3>차트 읽는 법</h3><p>도미넌스, 눌림목, 추세전환. 어렵게 들리지만 같이 보면 보여요.</p></div></div>
+      <div class="get-item"><div class="get-icon">✂️</div><div class="get-content"><h3>손절과 익절의 비율</h3><p>얼마에 팔고 얼마에 나올지. 이 기준이 없으면 계속 잃어요.</p></div></div>
+      <div class="get-item"><div class="get-icon">🔄</div><div class="get-content"><h3>매매 복기</h3><p>내가 어디서 실수했는지. 같이 보면 보이지 않던 게 보여요.</p></div></div>
+      <div class="get-item"><div class="get-icon">💰</div><div class="get-content"><h3>실전 수익 공유</h3><p>어떤 신호에서 들어가서 얼마 났는지. 남의 경험이 내 것이 돼요.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- STATS -->
 <section class="stats-section">
   <div class="stats-inner reveal">
     <span class="section-tag" style="color:var(--accent);">실제 데이터</span>
@@ -283,38 +206,18 @@ footer p { font-size:11px; color:rgba(255,255,255,0.18); line-height:1.8; }
   </div>
 </section>
 
-<!-- SAFETY -->
 <section class="safety-section">
   <div class="safety-inner reveal">
     <span class="section-tag" style="color:var(--deep);">믿어도 되는 이유</span>
     <h2 class="section-h2">이 모임이<br><strong style="color:var(--deep);">안전한 이유</strong></h2>
     <div class="safety-cards">
-      <div class="safety-card">
-        <div class="safety-icon">🚫</div>
-        <div>
-          <h3>특정 코인 추천 없어요</h3>
-          <p>어떤 코인 사라고 절대 하지 않아요. 스스로 판단하는 법을 배우는 모임이에요.</p>
-        </div>
-      </div>
-      <div class="safety-card">
-        <div class="safety-icon">💳</div>
-        <div>
-          <h3>입금 요청 없어요</h3>
-          <p>참가비 없고, 어떤 명목으로도 돈 요청하지 않아요. 공부 모임이에요.</p>
-        </div>
-      </div>
-      <div class="safety-card">
-        <div class="safety-icon">👥</div>
-        <div>
-          <h3>4만명이 함께 쓰는 시스템</h3>
-          <p>이미 검증된 차트 시스템이에요. 한국과 일본에서 수만 명이 사용 중이에요.</p>
-        </div>
-      </div>
+      <div class="safety-card"><div class="safety-icon">🚫</div><div><h3>특정 코인 추천 없어요</h3><p>어떤 코인 사라고 절대 하지 않아요. 스스로 판단하는 법을 배우는 모임이에요.</p></div></div>
+      <div class="safety-card"><div class="safety-icon">💳</div><div><h3>입금 요청 없어요</h3><p>참가비 없고, 어떤 명목으로도 돈 요청하지 않아요. 공부 모임이에요.</p></div></div>
+      <div class="safety-card"><div class="safety-icon">👥</div><div><h3>4만명이 함께 쓰는 시스템</h3><p>이미 검증된 차트 시스템이에요. 한국과 일본에서 수만 명이 사용 중이에요.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- PHOTOS -->
 <section class="photo-section">
   <div class="photo-inner reveal">
     <span class="section-tag" style="color:var(--accent);">현장 사진</span>
@@ -327,78 +230,35 @@ footer p { font-size:11px; color:rgba(255,255,255,0.18); line-height:1.8; }
   </div>
 </section>
 
-<!-- HOW TO JOIN -->
 <section class="how-section">
   <div class="how-inner reveal">
     <span class="section-tag">참여 방법</span>
     <h2 class="section-h2">딱 <strong>3단계</strong>예요</h2>
     <div class="how-steps">
-      <div class="how-step">
-        <div class="how-num">1</div>
-        <div class="how-content">
-          <h3>카카오로 문의</h3>
-          <p>아래 버튼 누르면 카카오로 바로 연결돼요. 간단히 인사만 해주세요.</p>
-        </div>
-      </div>
-      <div class="how-step">
-        <div class="how-num">2</div>
-        <div class="how-content">
-          <h3>일정 확인</h3>
-          <p>매주 정해진 요일에 모임이 있어요. 편한 날 말씀해 주시면 안내해드려요.</p>
-        </div>
-      </div>
-      <div class="how-step">
-        <div class="how-num">3</div>
-        <div class="how-content">
-          <h3>모임 참여</h3>
-          <p>처음이라도 괜찮아요. 같이 보고, 같이 배우는 자리예요.</p>
-        </div>
-      </div>
+      <div class="how-step"><div class="how-num">1</div><div class="how-content"><h3>카카오로 문의</h3><p>아래 버튼 누르면 카카오로 바로 연결돼요. 간단히 인사만 해주세요.</p></div></div>
+      <div class="how-step"><div class="how-num">2</div><div class="how-content"><h3>일정 확인</h3><p>매주 정해진 요일에 모임이 있어요. 편한 날 말씀해 주시면 안내해드려요.</p></div></div>
+      <div class="how-step"><div class="how-num">3</div><div class="how-content"><h3>모임 참여</h3><p>처음이라도 괜찮아요. 같이 보고, 같이 배우는 자리예요.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
 <section class="final-cta" id="cta">
   <div class="free-tag">무 료 참 가</div>
-  <h2>안양/평촌에서<br><strong>같이 공부해요</strong></h2>
-  <p class="cta-sub">
-    참가비 없어요 · 부담 없어요<br>
-    카카오로 문의하시면 친절하게 안내해드려요
-  </p>
-  <a href="https://open.kakao.com/o/g4dSRgpi" class="kakao-btn" target="_blank">
-    💬 &nbsp;카카오로 참여 문의하기
-  </a>
-  <p class="how-to">
-    버튼 클릭 → 카카오 연결<br>
-    <strong>"스터디 문의"</strong>라고 보내주시면 바로 답장드려요
-  </p>
+  <h2>범계역에서<br><strong>같이 공부해요</strong></h2>
+  <p class="cta-sub">참가비 없어요 · 부담 없어요<br>카카오로 문의하시면 친절하게 안내해드려요</p>
+  <a href="https://open.kakao.com/o/g4dSRgpi" class="kakao-btn" target="_blank">💬 &nbsp;카카오로 참여 문의하기</a>
+  <p class="how-to">버튼 클릭 → 카카오 연결<br><strong>"스터디 문의"</strong>라고 보내주시면 바로 답장드려요</p>
   <div class="info-grid">
-    <div class="info-item">
-      <div class="info-label">대상</div>
-      <div class="info-val">30~65세</div>
-    </div>
-    <div class="info-item">
-      <div class="info-label">참가비</div>
-      <div class="info-val">무료</div>
-    </div>
-    <div class="info-item">
-      <div class="info-label">지역</div>
-      <div class="info-val">안양/평촌</div>
-    </div>
-    <div class="info-item">
-      <div class="info-label">주기</div>
-      <div class="info-val">매주 정기</div>
-    </div>
+    <div class="info-item"><div class="info-label">대상</div><div class="info-val">30~65세</div></div>
+    <div class="info-item"><div class="info-label">참가비</div><div class="info-val">무료</div></div>
+    <div class="info-item"><div class="info-label">지역</div><div class="info-val">범계역</div></div>
+    <div class="info-item"><div class="info-label">주기</div><div class="info-val">매주 정기</div></div>
   </div>
-  <div class="disclaimer">
-    본 모임은 투자 교육 목적이며, 특정 코인 매수·매도를 권유하지 않습니다.<br>
-    투자의 책임은 전적으로 본인에게 있습니다.
-  </div>
+  <div class="disclaimer">본 모임은 투자 교육 목적이며, 특정 코인 매수·매도를 권유하지 않습니다.<br>투자의 책임은 전적으로 본인에게 있습니다.</div>
 </section>
 
 <footer>
-  <p>안양/평촌 코인 차트 스터디 모임<br>© 2026 All rights reserved</p>
+  <p>범계역 코인 차트 스터디 모임<br>© 2026 All rights reserved</p>
 </footer>
 
 <div class="sticky-bar" id="stickyBar">
